@@ -3,6 +3,10 @@
 ## Descripción
 Wizard es un proyecto desarrollado en Vue.js, JavaScript y HTML. 
 
+![Captura de pantalla del portafolio web](w1.jpg)
+![Captura de pantalla del portafolio web](w2.jpg)
+![Captura de pantalla del portafolio web](w3.jpg)
+![Captura de pantalla del portafolio web](w4.jpg)
 
 ## Tecnologías Utilizadas
 - **Vue.js:** 60.3%
