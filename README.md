@@ -21,11 +21,14 @@ Para instalar y ejecutar este proyecto localmente, sigue estos pasos:
    git clone https://github.com/Paulo1603C/Wizard.git
 
 2. Navega al directorio del proyecto:
+   ```sh
     cd Wizard
 
-3. Instala las dependencias:
-    npm install
+4. Instala las dependencias:
+   ```sh
+   npm install
 
-4. Ejecuta el proyecto:
-    npm run serve
+6. Ejecuta el proyecto:
+   ```sh
+   npm run serve
 
