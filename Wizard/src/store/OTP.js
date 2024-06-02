@@ -9,6 +9,7 @@ export default {
     state: {
         codeOtp:'',
         codeOtp2:true,
+        showOTP:false,
         dataRuc: [],
     },
 
@@ -24,6 +25,10 @@ export default {
 
         getCodeValor(state){
             return state.codeOtp2;
+        },
+
+        getShowOTP(state){
+            return state.showOTP;
         }
     },
 
@@ -39,6 +44,11 @@ export default {
 
         setCodeOTP(state, valor){
             state.codeOtp2 = valor;
+
+        },
+
+        setShowOTP(state, valor){
+            state.showOTP = valor;
 
         }
     },

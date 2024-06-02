@@ -26,7 +26,7 @@
           <v-btn class="mt-2" color="primary" type="submit" block :loading="loading">Solicitar código</v-btn>
         </v-row>
       </v-form>
-      <div v-if="showOTP">
+      <div v-if="getShowOTP">
         <v-container class="mt-5">
           <v-form ref="otpForm" @submit.prevent="verifyOTP">
             <v-row class="justify-center">
@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     ...mapActions('OTP', ['enviarCodeOtp', 'verificarCodeOtp', 'guardarLead']),
-    ...mapMutations('OTP',['setCodeOTP']),
+    ...mapMutations('OTP',['setCodeOTP','setShowOTP']),
 
     async sendOTP() {
       this.$refs.form.validate();
@@ -98,7 +98,7 @@ export default {
         const aux = await this.enviarCodeOtp({ telefono: this.telefono });
         if (aux === true) {
           console.log("Código enviado exitosamente");
-          this.showOTP = true;
+          this.setShowOTP(true);
         } else {
           this.error = true;
           this.errorMessage = 'Error al enviar el código. Intente nuevamente.';
@@ -124,6 +124,7 @@ export default {
           if (res === true) {
             this.setCodeOTP(false);
             await this.guardarLead({ datos: this.datosLead });
+            this.limpiarCampos();
           } else {
             this.error = true;
             this.errorMessage = 'Código no válido. Intente nuevamente.';
@@ -139,7 +140,14 @@ export default {
         this.error = true;
         this.errorMessage = 'El código debe tener 6 dígitos.';
       }
-    }
+    },
+
+    limpiarCampos(){
+      this.nombre='';
+      this.apellido='';
+      this.telefono='';
+      this.codes = Array(6).fill('');
+    },
   },
 
   components: {
@@ -147,7 +155,7 @@ export default {
   },
 
   computed: {
-        ...mapGetters('OTP', ['getCodeValor']),
+        ...mapGetters('OTP', ['getCodeValor','getShowOTP']),
     },
 }
 </script>

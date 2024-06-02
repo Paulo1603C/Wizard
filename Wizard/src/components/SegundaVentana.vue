@@ -26,9 +26,9 @@
                   :rules="[rules.required, rules.email]" required></v-text-field>
                 <v-select v-model="selectedCode" :items="subsidiaries" item-value="code" item-text="commercial_name"
                   label="Seleccione una sucursal" @change="actualizarCampos"></v-select>
-                <v-text-field label="Dirección" v-model="selectedSubsidiary.address" readonly></v-text-field>
+                <v-text-field label="Dirección" v-model="selectedSubsidiary.address" required readonly></v-text-field>
                 <v-text-field label="Nombre Comercial" v-model="selectedSubsidiary.commercial_name"
-                  readonly></v-text-field>
+                required readonly></v-text-field>
               </v-container>
             </v-form>
           </v-card-text>

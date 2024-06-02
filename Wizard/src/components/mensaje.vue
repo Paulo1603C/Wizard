@@ -50,12 +50,13 @@ export default {
     },
     methods: {
 
-        ...mapMutations('OTP',['setCodeOTP']),
+        ...mapMutations('OTP',['setCodeOTP','setShowOTP']),
 
         closeDialog() {
             this.localDialog = false;
             this.$emit('closeDialog');
             this.setCodeOTP(true);
+            this.setShowOTP(false);
         },
     },
 }
